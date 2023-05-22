@@ -11,12 +11,20 @@ def events(screen, main_menu):
         if event.type == pygame.QUIT:
             screen.is_running = False
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_w:
+            if event.key == pygame.K_UP:
                 main_menu.switch(-1)
-            elif event.key == pygame.K_s:
+            elif event.key == pygame.K_DOWN:
                 main_menu.switch(1)
             elif event.key == pygame.K_SPACE:
                 main_menu.select()
+            elif event.key == pygame.K_w:
+                print("change direction")
+            elif event.key == pygame.K_s:
+                print("speed up")
+            elif event.key == pygame.K_a:
+                print("left")
+            elif event.key == pygame.K_d:
+                print("right")
 
 
 def update(bg_color, screen, stats, score, gun, alliens, bullets):

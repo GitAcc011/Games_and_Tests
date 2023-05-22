@@ -14,6 +14,9 @@ class Menu:
         self._option_surfaces.append(self._ARIAL_50.render(option, True, (255, 255, 255)))
         self._callback.append(callback)
 
+    def delete_options(self):
+        self._option_surfaces.clear()
+
     def switch(self, direction):
         self._current_option_index = max(0, min(self._current_option_index + direction, len(self._option_surfaces) - 1))
 
@@ -28,3 +31,5 @@ class Menu:
                 pygame.draw.rect(surface, (0, 100, 0), option_rect)
             surface.blit(option, option_rect)
 
+    # def start_clicked(self):
+    #
