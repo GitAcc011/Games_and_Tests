@@ -16,6 +16,7 @@ class Menu:
 
     def delete_options(self):
         self._option_surfaces.clear()
+        self._callback.clear()
 
     def switch(self, direction):
         self._current_option_index = max(0, min(self._current_option_index + direction, len(self._option_surfaces) - 1))
@@ -26,10 +27,13 @@ class Menu:
     def draw(self, surface, x, y, option_y_padding):
         for i, option in enumerate(self._option_surfaces):
             option_rect = option.get_rect()
-            option_rect.topleft = (x, y + i * option_y_padding)
+            option_rect.center = (x, y + i * option_y_padding)
             if i == self._current_option_index:
                 pygame.draw.rect(surface, (0, 100, 0), option_rect)
             surface.blit(option, option_rect)
 
-    # def start_clicked(self):
-    #
+    def start_clicked(self):
+        if len(self._option_surfaces) == 0:
+            return True
+        else:
+            return False
